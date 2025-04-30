@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kumbh+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <title>E-commerce product page</title>
+  <style type="text/tailwindcss"></style>
+</head>
+
+<body class="bg-white font-[Kumbh+Sans] text-base h-full">
+
+  <header class="flex items-center fixed h-20 top-0 lg:static bg-white shadow-lg gap-2 p-3 w-full md:shadow-none md:block md:gap-0 md:py-0">
+  
+      <div onclick="displayNav()" class="md:hidden mx-2 my-4 p-1">
+        <img src="images/icon-menu.svg">
+      </div>
+
+
+    <nav class="flex gap-30 md:gap-0 md:flex md:items-center md:justify-between md:py-6 md:border-b-2 md:border-gray-100 lg:mx-40 md:mx-20">
+      <div class="flex items-center py-2 gap-10">
+        <h2 class="font-bold font-[Montserrat] text-2xl lg:text-3xl sneaker">sneakers</h2>
+        <ul class="hidden md:flex items-center justify-between gap-5 text-gray-400 text-sm font-medium">
+          <li class="hover:border-b-2 border-orange-500"><a href="#">Collections</a></li>
+          <li class="hover:border-b-2 border-orange-500"><a href="#">Men</a></li>
+          <li class="hover:border-b-2 border-orange-500"><a href="#">Women</a></li>
+          <li class="hover:border-b-2 border-orange-500"><a href="#">About</a></li>
+          <li class="hover:border-b-2 border-orange-500"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="flex items-center gap-5 lg:justify-evenly md:gap-8">
+        <img src="images/icon-cart.svg" onclick="showCart()" class="w-1/4 cursor-pointer md:w-1/6 lg:w-1/7">
+        <img src="images/image-avatar.png"  class="w-1/3 cursor-pointer rounded-full hover:border-1 hover:border-orange-500 md:w-1/4">
+      </div>
+    </nav>
+  </header>
+
+  <div id="cart" class="hidden shadow-lg/30 bg-white absolute top-20 right-4 z-1 w-11/12 rounded-lg h-fit lg:w-1/4 lg:top-20 lg:right-30" id="cart">
+    <h4 class="border-b-2 border-gray-100 p-4 font-semibold">Cart</h4>
+
+    <div id="cartList" class="flex px-1 py-5 flex-col items-center justify-center px-4">
+      <p class="text-gray-400">Your cart is empty.</p>
+    </div>
+  </div>
+
+  <div id="showList" class="hidden fixed overflow-x-hidden top-0 left-0 z-1 bg-white text-black pt-15 shadow-lg flex flex-col px-3 py-2 w-1/2 h-full font-semibold lg:hidden">
+    <a href="" onclick="closeNav()" class="absolute top-5 text-gray-400 ">&times;</a>
+    <ul class="flex flex-col items-start justify-center gap-5">
+      <li><a href="">Collections</a></li>
+      <li><a href="">Men</a></li>
+      <li><a href="">Women</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+
+
+  <div class="flex flex-col mt-18 mb-4  w-full lg:flex-row lg:items-center lg:mt-20 lg:justify-center lg:px-25">
+    <div class="flex flex-col w-full lg:w-1/2 lg:items-center lg:justify-center lg:gap-5 lg:p-3">
+      <div class="slideshow-container max-w-[1000px] relative m-auto w-full lg:w-8/12 lg:flex flex-col items-center justify-center gap-5">
+        <div class="cursor-pointer hover:opacity-90" onclick="openLightBox();currentSlide(1)">
+          <img src="images/image-product-1.jpg" class="align-middle w-full lg:rounded-lg">
+        </div>
+
+        <button onclick="plusSlides(-1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg left-4 hover:text-orange-400">
+          <a class="absolute top-0 left-2.5 w-auto">❮</a>
+        </button>
+        <button  onclick="plusSlides(1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg right-4 hover:text-orange-400">
+          <a class="absolute top-0 right-2.5 w-auto">❯</a>
+        </button>
+      </div>
+
+      <div class="hidden lg:flex justify-between w-8/12 ">
+        <img src="images/image-product-1.jpg" onclick="openLightBox();currentSlide(1)" class="dot w-1/5 rounded cursor-pointer hover:border-2 hover:border-orange-500 hover:opacity-60 hover:scale-110" alt="sneakers">
+   
+        <img src="images/image-product-2.jpg" onclick="openLightBox();currentSlide(2)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+
+        <img src="images/image-product-3.jpg" onclick="openLightBox();currentSlide(3)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+
+        <img src="images/image-product-4.jpg" onclick="openLightBox();currentSlide(4)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+    </div>
+  </div>
+
+  <div id="lightBox" class="hidden flex justify-center items-center fixed z-1 overflow-auto top-0 sm:h-full lg:h-fit">
+    <div class="flex flex-col my-25 w-1/2 py-3 mx-auto items-center justify-center gap-5">
+      <div class="slideshow-container max-w-[1200px] relative m-auto w-7/12 lg:w-1/2 lg:flex flex-col items-center justify-center gap-5">
+        <div onclick="closeLightBox()" class="absolute right-0 -top-6 lg:-top-10 font-bold text-sm text-white lg:text-xl hover:text-orange-500 cursor-pointer">&times</div>
+          <div class="mySlides cursor-pointer">
+              <img src="images/image-product-1.jpg" class="align-middle w-full lg:rounded-lg">
+          </div>
+            
+          <div class="mySlides hidden">
+              <img src="images/image-product-2.jpg" class="w-full align-middle lg:rounded-lg">
+          </div>
+            
+          <div class="mySlides hidden">
+              <img src="images/image-product-3.jpg" class="w-full align-middle lg:rounded-lg">
+          </div>
+
+          <div class="mySlides hidden">
+              <img src="images/image-product-4.jpg" class="w-full align-middle lg:rounded-lg">
+          </div>
+
+          <button onclick="plusSlides(-1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg -left-4 hover:text-orange-400">
+              <a class="absolute top-0 left-2.5 w-auto">❮</a>
+          </button>
+          <button  onclick="plusSlides(1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg -right-4 hover:text-orange-400">
+              <a class="absolute top-0 right-2.5 w-auto">❯</a>
+          </button>
+      </div>
+
+      <div class="w-7/12 flex justify-between lg:w-1/2 ">
+          <img src="images/image-product-1.jpg" onclick="currentSlide(1)" class="dot w-1/5 rounded cursor-pointer hover:border-2 hover:border-orange-500 hover:opacity-60 hover:scale-110" alt="sneakers">
+     
+          <img src="images/image-product-2.jpg" onclick="currentSlide(2)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+
+          <img src="images/image-product-3.jpg" onclick="currentSlide(3)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+
+          <img src="images/image-product-4.jpg" onclick="currentSlide(4)" class="dot w-1/5 rounded hover:border-2 hover:cursor-pointer hover:border-orange-500 hover:opacity-60 hover:scale-110">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="w-full px-5 flex flex-col items-start gap-5 py-5 lg:w-1/2 lg:justify-center lg:px-10 lg:pt-5">
+      <div class="gap-3 flex flex-col lg:w-9/12">
+        <p class="uppercase font-bold text-gray-400 text-xs md:text-base lg:text-xs">Sneaker Company</p>
+        <h2 class="text-2xl md:text-4xl/10 font-bold">Fall Limited Edition Sneakers</h2>
+        <p class="text-gray-400 tracking-tight md:text-lg lg:text-base">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+      </div>
+    
+      <div class="flex items-center justify-between gap-20 w-9/12 font-[Inter] lg:flex-col lg:gap-2 lg:items-start">
+        <div class="flex gap-3 items-center">
+          <p class="font-bold text-2xl">$125.00</p>
+          <p class="bg-black text-white rounded px-2 font-semibold">50%</p>
+        </div>
+        <p class="text-gray-400 line-through font-bold">$250.00</p>
+      </div>
+     
+    
+      <div class="flex flex-col lg:flex-row mx-auto w-full lg:items-center gap-5">
+        <button class="flex w-full lg:w-1/4 items-center justify-between gap-6 rounded-lg px-4 py-2 lg:py-1 addbtn">
+          <span onclick="minus()" class="cursor-pointer"><img src="images/icon-minus.svg"></span>
+          <span class="font-bold" id="count">1</span>
+          <span onclick="plus()" class="cursor-pointer"><img src="images/icon-plus.svg"></span>
+        </button>
+        <button onclick="addCart()" class="flex justify-center items-center gap-2 shadow-lg/30 shadow-orange-300 bg-orange-400 hover:bg-orange-300 cursor-pointer rounded-lg py-4 lg:py-2 px-10 font-bold">
+          <img src="images/icon-cart.svg" alt="cart" class="w-1/12 lg:w-1/6">
+          <span class="text-xs">Add to cart</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="script.js">
+    
+    // function removeItem(index) {
+    //   allItems.splice(index, 1);
+    //   showCart(); 
+    // }
+
+  </script>
+</body>
+</html>
