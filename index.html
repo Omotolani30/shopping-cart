@@ -18,7 +18,8 @@
 
 <body class="bg-white font-[Kumbh+Sans] text-base h-full">
 
-  <header class="flex items-center sticky h-20 top-0 lg:static bg-white shadow-lg gap-2 p-3 w-full md:shadow-none md:block md:gap-0 md:py-0">
+<!-- Navigation -->
+  <header class="flex items-center fixed h-20 top-0 lg:static bg-white shadow-lg gap-2 p-3 w-full md:shadow-none md:block md:gap-0 md:py-0">
   
       <div onclick="displayNav()" class="md:hidden mx-2 my-4 p-1">
         <img src="images/icon-menu.svg">
@@ -45,6 +46,7 @@
     </nav>
   </header>
 
+  <!-- Cart -->
   <div id="cart" class="hidden shadow-lg/30 bg-white absolute top-20 right-4 z-1 w-11/12 rounded-lg h-fit lg:w-1/4 lg:top-20 lg:right-30" id="cart">
     <h4 class="border-b-2 border-gray-100 p-4 font-semibold">Cart</h4>
 
@@ -65,17 +67,20 @@
   </div>
 
 
-  <div class="flex flex-col mt-0 mb-4 w-full lg:flex-row lg:items-center lg:mt-20 lg:justify-center lg:px-25">
+<!-- flexBox -->
+  <div class="flex flex-col mb-4 w-full lg:flex-row lg:items-center lg:mt-20 lg:justify-center lg:px-25">
+
+    <!-- Shoeslides -->
     <div class="flex flex-col w-full lg:w-1/2 lg:items-center lg:justify-center lg:gap-5 lg:p-3">
-      <div class="slideshow-container max-w-[1000px] relative m-auto w-full lg:w-8/12 lg:flex flex-col items-center justify-center gap-5">
-        <div class="cursor-pointer hover:opacity-90" onclick="openLightBox();currentSlide(1)">
+      <div class="slideshow-container max-w-[1000px] m-auto w-full lg:w-8/12 lg:flex flex-col items-center justify-center gap-5">
+        <div class="cursor-pointer" onclick="openLightBox();currentSlide(1)">
           <img src="images/image-product-1.jpg" class="align-middle w-full lg:rounded-lg">
         </div>
 
-        <button onclick="plusSlides(-1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg left-4 hover:text-orange-400">
+        <button onclick="plusSlides(-1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/3 p-4 -mt-5 font-bold text-lg left-4 hover:text-orange-400">
           <a class="absolute top-0 left-2.5 w-auto">❮</a>
         </button>
-        <button  onclick="plusSlides(1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/2 p-4 -mt-5 font-bold text-lg right-4 hover:text-orange-400">
+        <button  onclick="plusSlides(1)" class="bg-white w-4 h-4 rounded-full cursor-pointer absolute top-1/3 p-4 -mt-5 font-bold text-lg right-4 hover:text-orange-400">
           <a class="absolute top-0 right-2.5 w-auto">❯</a>
         </button>
       </div>
@@ -91,6 +96,7 @@
     </div>
   </div>
 
+  <!-- Lightbox -->
   <div id="lightBox" class="hidden flex justify-center items-center fixed z-1 overflow-auto top-0 h-full lg:h-fit">
     <div class="flex flex-col my-25 lg:w-1/2 py-3 mx-auto items-center justify-center gap-5">
       <div class="slideshow-container max-w-[1200px] relative m-auto w-7/12 lg:w-1/2 lg:flex flex-col items-center justify-center gap-5">
@@ -132,7 +138,7 @@
   </div>
 
 
-
+  
     <div class="w-full px-5 flex flex-col items-start gap-5 py-5 lg:w-1/2 lg:justify-center lg:px-10 lg:pt-5">
       <div class="gap-3 flex flex-col lg:w-9/12">
         <p class="uppercase font-bold text-gray-400 text-xs md:text-base lg:text-xs">Sneaker Company</p>
