@@ -39,6 +39,7 @@
 
       <div class="flex items-center gap-5 lg:justify-evenly md:gap-8">
         <img src="images/icon-cart.svg" onclick="showCart()" class="w-1/4 cursor-pointer md:w-1/6 lg:w-1/7">
+
         <img src="images/image-avatar.png"  class="w-1/3 cursor-pointer rounded-full hover:border-1 hover:border-orange-500 md:w-1/4">
       </div>
     </nav>
@@ -64,7 +65,7 @@
   </div>
 
 
-  <div class="flex flex-col mt-18 mb-4  w-full lg:flex-row lg:items-center lg:mt-20 lg:justify-center lg:px-25">
+  <div class="flex flex-col mt-18 mb-4 w-full lg:flex-row lg:items-center lg:mt-20 lg:justify-center lg:px-25">
     <div class="flex flex-col w-full lg:w-1/2 lg:items-center lg:justify-center lg:gap-5 lg:p-3">
       <div class="slideshow-container max-w-[1000px] relative m-auto w-full lg:w-8/12 lg:flex flex-col items-center justify-center gap-5">
         <div class="cursor-pointer hover:opacity-90" onclick="openLightBox();currentSlide(1)">
@@ -90,10 +91,10 @@
     </div>
   </div>
 
-  <div id="lightBox" class="hidden flex justify-center items-center fixed z-1 overflow-auto top-0 sm:h-full lg:h-fit">
-    <div class="flex flex-col my-25 w-1/2 py-3 mx-auto items-center justify-center gap-5">
+  <div id="lightBox" class="flex justify-center items-center fixed z-1 overflow-auto top-0 h-full lg:h-fit">
+    <div class="flex flex-col my-25 lg:w-1/2 py-3 mx-auto items-center justify-center gap-5">
       <div class="slideshow-container max-w-[1200px] relative m-auto w-7/12 lg:w-1/2 lg:flex flex-col items-center justify-center gap-5">
-        <div onclick="closeLightBox()" class="absolute right-0 -top-6 lg:-top-10 font-bold text-sm text-white lg:text-xl hover:text-orange-500 cursor-pointer">&times</div>
+        <div onclick="closeLightBox()" class="absolute right-0 -top-15 lg:-top-10 font-bold text-3xl text-white lg:text-xl hover:text-orange-500 cursor-pointer">&times</div>
           <div class="mySlides cursor-pointer">
               <img src="images/image-product-1.jpg" class="align-middle w-full lg:rounded-lg">
           </div>
@@ -165,11 +166,6 @@
   
 
   <script src="script.js">
-    
-    // function removeItem(index) {
-    //   allItems.splice(index, 1);
-    //   showCart(); 
-    // }
 
   </script>
 </body>
