@@ -1,10 +1,10 @@
-let showList = document.getElementById("showList");
+let mobileMenu = document.getElementById("mobileMenu");
 //Responsive navbar
 function openNav() {
-  showList.style.display = "flex";
+  mobileMenu.style.display = "flex";
 }
 function closeNav() {
-  showList.style.display = "none";
+  mobileMenu.style.display = "none";
 }
 
 // number of product being added to cart
@@ -22,11 +22,7 @@ function plus() {
   document.getElementById("count").textContent = count;
 }
 
-// slides and lightbox
-let slideIndex = 1;
-showSlides(slideIndex);
 let lightBox = document.getElementById("lightBox");
-
 window.onclick = function (event) {
   if (event.target == lightBox) {
     closeLightBox();
@@ -39,17 +35,16 @@ function closeLightBox() {
   lightBox.style.display = "none";
 }
 
-// next and previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
+
+// slide functionality
+let slideIndex = 1;
+showSlides(slideIndex);
+
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
+
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -64,6 +59,46 @@ function showSlides(n) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex - 1].style.display = "block";
+}
+
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+// lightbox functionality
+let lightboxIndex = 1;
+showLightboxSlides(lightboxIndex);
+
+function showLightboxSlides(n) {
+  let j;
+  let lightBoxSlides = document.getElementsByClassName("lightBoxSlides");
+  let boxDots = document.getElementsByClassName("box_dot");
+
+  if (n > lightBoxSlides.length) {
+    lightboxIndex = 1;
+  }
+  if (n < 1) {
+    lightboxIndex = lightBoxSlides.length;
+  }
+
+  for (j = 0; j < lightBoxSlides.length; j++) {
+    lightBoxSlides[j].style.display = "none";
+  }
+  for (j = 0; j < boxDots.length; j++) {
+    boxDots[j].className = boxDots[j].className.replace(" active", "");
+  }
+
+  lightBoxSlides[lightboxIndex - 1].style.display = "block";
+}
+
+function plusLightBoxSlides(n) {
+  showLightboxSlides((lightboxIndex += n));
+}
+function currentLightBoxSlide(n) {
+  showLightboxSlides((lightboxIndex = n));
 }
 
 // Cart functionality
@@ -83,7 +118,7 @@ function addCart() {
     quantity: count,
     image: "images/image-product-1.jpg",
   };
-
+  cartBadge.style.display = "flex";
   allItems.push(item);
   cartCount++;
   displayCart();
@@ -110,7 +145,7 @@ function displayCart() {
     const total = item.price * item.quantity;
 
     cartList.innerHTML += `
-    <div class="flex items-center justify-center gap-3 px-2 py-5">
+    <div class="flex items-center justify-center gap-3 px-2 py-5 lg:px-4">
       <img src="${item.image}" class="w-1/6 rounded-sm">
       <div class="text-gray-400">
         <p class="text-sm font-medium">${item.title}</p>
@@ -125,9 +160,10 @@ function displayCart() {
 
   if (allItems.length > 0) {
     cartList.innerHTML += `
-      <button class="bg-orange-400 w-full rounded p-2 mx-auto text-sm font-medium" onclick="checkout()">Checkout</button>
+      <button class="bg-orange-400 w-9/12 lg:w-10/12 rounded p-3 mx-auto text-sm font-medium" onclick="checkout()">Checkout</button>
     `;
   } else {
     cartList.innerHTML = `<p class="text-center text-gray-400">Your cart is empty</p>`;
+    cartBadge.style.display = "none"
   }
 }
